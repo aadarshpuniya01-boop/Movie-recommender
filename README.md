@@ -1,7 +1,7 @@
 ---
 
 title: Movie Recommender System
-emoji: 🎬
+emoji: "🎬"
 colorFrom: indigo
 colorTo: purple
 sdk: streamlit
