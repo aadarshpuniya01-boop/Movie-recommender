@@ -1,44 +1,124 @@
+---
+
+title: Movie Recommender System
+emoji: 🎬
+colorFrom: indigo
+colorTo: purple
+sdk: streamlit
+sdk_version: "1.33.0"
+python_version: "3.10"
+app_file: app.py
+pinned: false
+-------------
+
 # 🎬 Movie Recommender System
 
-A simple yet powerful **Movie Recommendation Web App** built with **Streamlit**.  
-This app suggests movies based on user input using a **KNN model with cosine similarity** trained on a Kaggle dataset.
+A **Machine Learning-based Movie Recommendation Web App** deployed on **Hugging Face Spaces**.
+This application suggests similar movies based on user selection and displays posters using the TMDB API.
+
+---
+
+## 🚀 Live App
+
+👉 https://huggingface.co/spaces/Aadarshhhhhhhh/movie-recommendation
 
 ---
 
 ## 📌 Features
-- Interactive web interface powered by **Streamlit**
-- Movie recommendations based on **cosine similarity** of feature vectors
-- Fetches **movie posters** dynamically from **TMDB API**
-- Lightweight and easy to run locally
+
+* 🎯 Recommends top 5 similar movies
+* 🖼️ Fetches movie posters dynamically
+* ⚡ Fast predictions using precomputed similarity matrix
+* 🌐 Fully deployed on Hugging Face Spaces
+* 🎨 Interactive UI using Streamlit
 
 ---
 
-## 📂 Dataset
-- Source: [Kaggle Movie Dataset](https://www.kaggle.com/)  
-- Preprocessed and stored as:
-  - `movie_list.pkl` → contains movie metadata (titles, IDs, etc.)
-  - `similarity.pkl` → precomputed similarity matrix using **KNN + cosine similarity**
+## 🛠️ Tech Stack
+
+* **Frontend:** Streamlit
+* **Backend:** Python
+* **Machine Learning:** KNN + Cosine Similarity
+* **Libraries:** Pandas, NumPy, Scikit-learn
+* **API:** TMDB (for posters)
 
 ---
 
-## 🧠 Machine Learning Model
-- **Algorithm:** KNN (k-nearest neighbors) with **cosine similarity**  
-- **Goal:** Find the top 5 most similar movies to the selected one  
-- **Steps:**
-  1. Vectorize movie features (genres, overview, etc.)
-  2. Compute similarity scores using cosine similarity
-  3. Recommend top 5 movies with highest similarity scores
+## 📂 Project Structure
+
+```
+.
+├── app.py
+├── requirements.txt
+├── movie_list.pkl
+├── similarity.pkl
+└── README.md
+```
 
 ---
 
-## 🚀 How to Run
+## 🧠 How It Works
 
-### 1. Install Dependencies
+* Movie features (genres, keywords, cast, etc.) are processed
+* A similarity matrix is created using cosine similarity
+* When a user selects a movie:
+
+  * The system finds the most similar movies
+  * Returns top 5 recommendations
+  * Fetches posters via TMDB API
+
+---
+
+## 🔑 API Configuration
+
+The app uses **TMDB API** for posters.
+
+* API key is stored securely in **Hugging Face Secrets**
+* Accessed in code using:
+
+```python
+import os
+API_KEY = os.getenv("TMDB_API_KEY")
+```
+
+---
+
+## ⚙️ Run Locally
+
 ```bash
-pip install streamlit requests pickle-mixin numpy pandas scikit-learn
-python -m streamlit run movierecomender.py
-├── movierecomender.py      # Main Streamlit app
-├── movie_list.pkl          # Pickled movie metadata
-├── similarity.pkl          # Pickled similarity matrix
-├── README.md               # Project documentation
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## 🌍 Deployment
+
+* Platform: **Hugging Face Spaces**
+* SDK: Streamlit
+* Auto deployment via `git push`
+* Environment variables managed via **Secrets**
+
+---
+
+## 📈 Future Improvements
+
+* 🔎 Search autocomplete
+* 🎭 Genre-based filtering
+* 🤖 Deep learning embeddings (BERT)
+* 🎨 Netflix-style UI
+
+---
+
+## 👤 Author
+
+**Adarsh**
+Aspiring ML Engineer | Interested in NLP & MLOps
+
+---
+
+## 📄 License
+
+MIT License
+
 
